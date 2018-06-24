@@ -7,8 +7,14 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/custom.css" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=wX2df1OgvqpGPZjWslqo&submodules=geocoder"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
+        <script src="assets/js/sha256.min.js"></script>
+        <script src="assets/js/storage.js"></script>
     </head>
 	<body>
 
@@ -165,6 +171,45 @@
                     </section>
                 <!-- !Contact -->
 
+                <!-- Form -->
+                <section class="wrapper style1">
+                    <div class="inner">
+
+                        <section>
+                            <header><h3>메세지 남은것드르르르르르르르르를</h3></header>
+                            <div class="content"><dl id="commentList"></dl></div>
+                        </section>
+
+
+                        <header>
+                            <!--<h3>메세지 남기기</h3>-->
+                        </header>
+                        <div class="content">
+
+                            <form id="messageForm" action="#">
+                                <div class="field half first">
+                                    <label for="name">이름</label>
+                                    <input type="text" name="name" id="name" value="">
+                                </div>
+                                <div class="field half">
+                                    <label for="password">비밀번호</label>
+                                    <input type="password" name="password" id="password" value="">
+                                </div>
+
+                                <div class="field">
+                                    <label for="message">메세지</label>
+                                    <textarea name="message" id="message" rows="6"></textarea>
+                                </div>
+                                <ul class="actions">
+                                    <li><input type="submit" name="submit" id="submit" value="메세지 남기기"></li>
+                                </ul>
+                            </form>
+
+                        </div>
+                    </div>
+                </section>
+                <!-- !Form -->
+
 				<!-- Footer -->
 					<footer class="wrapper style1 align-center">
 						<div class="inner">
@@ -245,6 +290,30 @@
                 });
 
             </script>
+        <script>
+            $(document).ready(function() {
+                fbdb.sync(function(comments) {
+                    var $commentList = $("#commentList").empty();
+                    for(key in comments) {
+                        var c = comments[key];
+                        $commentList.prepend($("<dd><p>"+c.comment+"</p></dd>")).prepend($("<dt>"+c.username+"</dt>"));
+                    }
+                });
 
+                $("#messageForm").submit(function(e) {
+                    e.preventDefault();
+                    var $username = $("input[name=name]");
+                    var $password = $("input[name=password]");
+                    var $message = $("textarea[name=message]");
+                    var response = fbdb.write($username.val(), $password.val(), $message.val());
+
+                    if(response.success) {
+                        $username.val('');
+                        $password.val('');
+                        $message.val('');
+                    }
+                })
+            });
+        </script>
 	</body>
 </html>
