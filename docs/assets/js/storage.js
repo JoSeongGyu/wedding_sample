@@ -27,15 +27,15 @@
         return uuid;
     };
 
-    var salt = "__YAGOM__";
+
+    function getEncryptedPassword(password) {
+        var salt = "__YAGOM__";
+        return sha256(password + salt);
+    }
 
     this.write = function(username, password, comment) {
-        // if(password !== checkPassword) {
-        //     throw new StorageResponse(false, "비밀번호가 일치하지 않습니다.");
-        // }
-
         var time = moment();
-        password = sha256(password + salt);
+        password = getEncryptedPassword(password);
 
         fbdb.ref(bucketPath + generateUUID()).set({
             username: username,
@@ -49,8 +49,37 @@
 
     };
 
-    this.load = function(page) {
+    this.update = function(key, username, content, password, callback) {
+        var time = moment();
+        password = getEncryptedPassword(password);
+        fbdb.ref(bucketPath + key).once('value').then(function(snapshot) {
+            var comment = snapshot.val();
+            if(comment.password === password) {
+                fbdb.ref(bucketPath + key).update({
+                    username: username,
+                    password: password,
+                    comment: content,
+                    updatedAt: time.format("YYYY/MM/DD HH:mm:ss")
+                }).then(function() {
+                    callback(true);
+                });
+            } else {
+                callback(false);
+            }
+        });
+    }
 
+    this.delete = function(key, password, callback) {
+        fbdb.ref(bucketPath + key).once('value').then(function(snapshot) {
+            var comment = snapshot.val();
+            if(comment.password === getEncryptedPassword(password)) {
+                fbdb.ref(bucketPath + key).remove().then(function() {
+                    callback(true);
+                });
+            } else {
+                callback(false);
+            }
+        });
     };
 
     this.sync = function(callback) {
@@ -58,7 +87,18 @@
             if(!!snapshot && !!snapshot.val() && snapshot.val().length < 1) {
                 return;
             }
-            callback(snapshot.val());
+            var comments = [];
+
+            for (c in snapshot.val()) {
+
+                comments.push(_.extend(snapshot.val()[c], {key: c}));
+            }
+
+            comments.sort(function (a, b) {
+                return b.timestamp - a.timestamp;
+            });
+
+            callback(comments);
         });
     }
 

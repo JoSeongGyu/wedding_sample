@@ -4,11 +4,12 @@
 		<title>하나와 성규의 결혼식에 초대합니다</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/custom.css" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=wX2df1OgvqpGPZjWslqo&submodules=geocoder"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
@@ -473,6 +474,37 @@
 
 			</div>
 
+        <div id="delete-dialog-form" title="삭제하기">
+            <p class="validateTips">내용을 삭제하시려면 비밀번호를 입력해주세요.</p>
+            <form>
+                <fieldset>
+                    <label for="password">비밀번호</label>
+                    <input type="hidden" name="key" id="deleteKey" class="modalInput">
+                    <input type="password" name="password" id="deletePassword" class="text ui-widget-content ui-corner-all modalInput">
+                    <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                    <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+                </fieldset>
+            </form>
+        </div>
+
+        <div id="update-dialog-form" title="수정하기">
+            <form>
+                <fieldset>
+                    <label for="name">이름</label>
+                    <input type="text" name="name" id="updateUsername" value="" class="text ui-widget-content ui-corner-all modalInput">
+                    <label for="updatePassword">비밀번호</label>
+                    <input type="password" name="password" id="updatePassword" class="text ui-widget-content ui-corner-all modalInput">
+                    <label for="updateContent">내용</label>
+                    <textarea type="text" name="content" id="updateContent" value="" class="text ui-widget-content ui-corner-all modalInput" rows="5" style="resize:none;"></textarea>
+                    <input type="hidden" name="key" id="updateKey" class="modalInput">
+                    <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                    <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+                </fieldset>
+            </form>
+        </div>
+
+
+
 
 
 
@@ -480,6 +512,7 @@
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery-ui.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
@@ -537,13 +570,91 @@
                 });
 
             </script>
-        <script>
+        <script type="text/javascript">
+
+
+
+            var deleteDialog, updateDialog, dismissDialogs;
+
+            function getKeyFormDataProp($dom) {
+                return $dom.parent().data('key');
+            }
+            function getUsernameFromProp($dom) {
+                return $dom.parent().find('.ctitle').html();
+            }
+            function getContentFromProp($dom) {
+                return $dom.parent().next().find('p').html();
+            }
+            dismissDialogs = function () {
+                $(".modalInput").val('');
+                deleteDialog.dialog('close');
+                updateDialog.dialog('close');
+            };
+
             $(document).ready(function() {
+                var dialogDefaultOption = {autoOpen: false,
+                    height: 400,
+                    width: 350,
+                    modal: true,
+                    close: dismissDialogs
+                };
+
+                deleteDialog = $("#delete-dialog-form").dialog(_.extend(dialogDefaultOption, {
+                    buttons: {
+                        "삭제하기": function() {
+                            var password = $("#deletePassword").val();
+                            var key = $("#deleteKey").val();
+                            fbdb.delete(key, password, function(result) {
+                                if(!result) {
+                                    alert("비밀번호가 일치하지 않습니다.");
+                                } else {
+                                    dismissDialogs();
+                                }
+                            });
+                        },
+                        "취소": dismissDialogs
+                    }
+                }));
+
+                updateDialog = $("#update-dialog-form").dialog(_.extend(dialogDefaultOption, {
+                    height: 550,
+                    buttons: {
+                        "수정하기": function() {
+                            var username = $("#updateUsername").val();
+                            var content = $("#updateContent").val();
+                            var password = $("#updatePassword").val();
+                            var key = $("#updateKey").val();
+                            fbdb.update(key, username, content, password, function(result) {
+                                if(!result) {
+                                    alert("비밀번호가 일치하지 않습니다.");
+                                } else {
+                                    dismissDialogs();
+                                }
+                            });
+                        },
+                        "취소": dismissDialogs
+                    }
+                }));
+
+
+
+                $("#commentList")
+                    .delegate('.comment-edit', 'click', function(e) {
+                        $("#updateKey").val(getKeyFormDataProp($(this)));
+                        $("#updateUsername").val(getUsernameFromProp($(this)));
+                        $("#updateContent").val(getContentFromProp($(this)));
+                        updateDialog.dialog('open');
+                    }).delegate('.comment-delete', 'click', function(e) {
+                        $("#deleteKey").val(getKeyFormDataProp($(this)));
+                        deleteDialog.dialog('open');
+                    });
+
+
                 fbdb.sync(function(comments) {
                     var $commentList = $("#commentList").empty();
                     for(key in comments) {
                         var c = comments[key];
-                        $commentList.prepend($("<dd><p>"+c.comment+"</p></dd>")).prepend($("<dt>"+c.username+"</dt>"));
+                        $commentList.prepend($("<dd><p>"+c.comment+"</p></dd>")).prepend($("<dt data-key='"+c.key+"'><span class='ctitle'>"+c.username+"</span><i class='far fa-edit comment-edit'>&nbsp;수정</i>&nbsp;<i class='far fa-trash-alt comment-delete'>&nbsp;삭제</i></dt>"));
                     }
                 });
 

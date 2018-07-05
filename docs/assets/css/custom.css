@@ -1,6 +1,12 @@
 #wayToCome .inner{padding-left:0;padding-right:0;}
 #wayToCome h5 {margin-bottom: 0.2rem}
 #naverMap {margin-bottom: 3rem;}
+#commentList dt i {font-size: 13px;line-height: inherit;float: right;margin-left: 12px;}
+#commentList dt i:hover {cursor: pointer;}
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
 
 @media screen and (max-width: 1280px) {
     #wayToCome .inner{margin-left:0;margin-right:0;width:100%;}
