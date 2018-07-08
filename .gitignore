@@ -3,6 +3,10 @@
 
 # Created by https://www.gitignore.io/api/linux,macos,windows,sublimetext
 
+### NPM Modules ###
+node_modules
+node_modules/*
+
 ### Linux ###
 *~
 
