@@ -3,38 +3,37 @@ import del from 'del';
 import sass from 'gulp-sass';
 import webpack from 'webpack';
 import gulpWebpack from 'webpack-stream';
-import DevConfig from './webpack.config';
+import WebpackConfig from './webpack.config';
 
 const srcPath = {
-  js: 'src/js',
-  css: 'src/sass',
+  js: './docs/assets/src/js',
+  css: './docs/assets/src/sass',
 };
 
-const buildPath = {
-  js: 'build/js',
-  css: 'build/css',
+const distPath = {
+  js: './docs/assets/dist/js',
+  css: './docs/assets/dist/css',
 };
 
-const devConfig = new DevConfig();
 
 // javascripts -----------------------------------------------------------
 gulp.task(
   'js_clean',
-  () => del.sync([buildPath.js]),
+  () => del.sync([distPath.js]),
 );
 
 gulp.task(
   'webpack:dev',
-  () => gulp.src(`${srcPath.js}/!**!/!*.js`)
-    .pipe(gulpWebpack(devConfig.config, webpack))
-    .pipe(gulp.dest(buildPath.js)),
+  () => gulp.src(`${srcPath.js}/**/*.js`)
+    .pipe(gulpWebpack(WebpackConfig, webpack))
+    .pipe(gulp.dest(distPath.js)),
 );
 
 
 // css -------------------------------------------------------------------
 gulp.task(
   'css_clean',
-  () => del.sync([buildPath.css]),
+  () => del.sync([distPath.css]),
 );
 
 gulp.task(
@@ -42,7 +41,7 @@ gulp.task(
   ['css_clean'],
   () => gulp.src([`${srcPath.css}/**/*.scss`, `${srcPath.css}/**/*.sass`])
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(buildPath.css)),
+    .pipe(gulp.dest(distPath.css)),
 );
 
 

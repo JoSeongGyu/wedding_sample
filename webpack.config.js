@@ -1,35 +1,33 @@
 const webpack = require('webpack');
+const path = require('path');
 
-const srcDir = './assets/src/js';
+const srcDir = './docs/assets/src/js';
 
-const config = {
-  entry: `${srcDir}/app.js`,
-  output: {
-    path: `${__dirname}/assets/dist/js`,
-    filename: 'bundle.js',
+module.exports = {
+  mode: 'production',
+  entry: {
+    main: `${srcDir}/main.js`,
+    comment_list: `${srcDir}/commentList.js`,
+    dialog: `${srcDir}/dialog.js`,
   },
-  watch: true,
+  output: {
+    filename: '[name].js',
+    path: `${__dirname}/docs/assets/dist/js`,
+  },
   module: {
-    loaders: [
-      {
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          cacheDirectory: true,
-          presets: ['es2015'],
-        },
-      },
-    ],
   },
   resolve: {
     extensions: ['.js'],
   },
-  plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-    }),
-  ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'initial',
+          name: 'vendor',
+          enforce: true,
+        },
+      },
+    },
+  },
 };
-
-module.exports = () => ({ config });

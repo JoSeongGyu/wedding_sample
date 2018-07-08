@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/JoSeongGyu/wedding_sample#readme",
   "dependencies": {
+    "jquery": "^3.3.1",
+    "momentjs": "^2.0.0",
+    "underscore": "^1.9.1"
+  },
+  "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -36,8 +41,9 @@
     "eslint-plugin-react": "^7.10.0",
     "gulp": "^3.9.1",
     "gulp-sass": "^4.0.1",
-    "jquery": "^3.3.1",
+    "path": "^0.12.7",
     "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
     "webpack-stream": "^4.0.3"
   }
 }

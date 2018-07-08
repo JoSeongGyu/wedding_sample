@@ -7,6 +7,10 @@
 node_modules
 node_modules/*
 
+### Builded Files ###
+docs/assets/dist
+docs/assets/dist/*
+
 ### Linux ###
 *~
 
