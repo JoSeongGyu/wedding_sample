@@ -1,5 +1,8 @@
 import _ from 'underscore';
 
+export let deleteDialog;
+export let updateDialog;
+
 const dismissDialogs = () => {
   $(".modalInput").val("");
   deleteDialog.dialog("close");
@@ -31,43 +34,45 @@ export function getContentFromProp($dom) {
     .html();
 }
 
-export const deleteDialog = $("#delete-dialog-form").dialog(
-  _.extend(dialogDefaultOption, {
-    buttons: {
-      삭제하기: () => {
-        const password = $("#deletePassword").val();
-        const key = $("#deleteKey").val();
-        fbdb.delete(key, password, (result) => {
-          if (!result) {
-            alert("비밀번호가 일치하지 않습니다.");
-          } else {
-            dismissDialogs();
-          }
-        });
-      },
-      취소: dismissDialogs
-    }
-  })
-);
+$(function() {
+  deleteDialog = $("#delete-dialog-form").dialog(
+    _.extend(dialogDefaultOption, {
+      buttons: {
+        삭제하기: () => {
+          const password = $("#deletePassword").val();
+          const key = $("#deleteKey").val();
+          fbdb.delete(key, password, (result) => {
+            if (!result) {
+              alert("비밀번호가 일치하지 않습니다.");
+            } else {
+              dismissDialogs();
+            }
+          });
+        },
+        취소: dismissDialogs
+      }
+    })
+  );
 
-export const updateDialog = $("#update-dialog-form").dialog(
-  _.extend(dialogDefaultOption, {
-    height: 550,
-    buttons: {
-      수정하기: () => {
-        const username = $("#updateUsername").val();
-        const content = $("#updateContent").val();
-        const password = $("#updatePassword").val();
-        const key = $("#updateKey").val();
-        fbdb.update(key, username, content, password, (result) => {
-          if (!result) {
-            alert("비밀번호가 일치하지 않습니다.");
-          } else {
-            dismissDialogs();
-          }
-        });
-      },
-      취소: dismissDialogs
-    }
-  })
-);
+  updateDialog = $("#update-dialog-form").dialog(
+    _.extend(dialogDefaultOption, {
+      height: 550,
+      buttons: {
+        수정하기: () => {
+          const username = $("#updateUsername").val();
+          const content = $("#updateContent").val();
+          const password = $("#updatePassword").val();
+          const key = $("#updateKey").val();
+          fbdb.update(key, username, content, password, (result) => {
+            if (!result) {
+              alert("비밀번호가 일치하지 않습니다.");
+            } else {
+              dismissDialogs();
+            }
+          });
+        },
+        취소: dismissDialogs
+      }
+    })
+  );
+})
