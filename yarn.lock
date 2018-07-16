@@ -3129,7 +3129,21 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-jquery@^3.3.1:
+jquery-ui@^1.12.1:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.12.1.tgz#bcb4045c8dd0539c134bc1488cdd3e768a7a9e51"
+
+jquery.scrollex@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/jquery.scrollex/-/jquery.scrollex-0.2.1.tgz#c03ce02de7bf514890a8590d9ff55f084dd5936d"
+  dependencies:
+    jquery ">=1.11"
+
+jquery.scrolly@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/jquery.scrolly/-/jquery.scrolly-0.0.1.tgz#08e0778674317299fbded19f12506c049f744e57"
+
+jquery@>=1.11, jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 

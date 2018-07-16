@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 $("#commentList")
   .delegate(".comment-edit", "click", function(e) {
     $("#updateKey").val(getKeyFormDataProp($(this)));
