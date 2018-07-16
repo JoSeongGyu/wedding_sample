@@ -1,17 +1,17 @@
-(($) => {
+($ => {
   skel.breakpoints({
-    xlarge: "(max-width: 1680px)",
-    large: "(max-width: 1280px)",
-    medium: "(max-width: 980px)",
-    small: "(max-width: 736px)",
-    xsmall: "(max-width: 480px)",
-    xxsmall: "(max-width: 360px)"
+    xlarge: '(max-width: 1680px)',
+    large: '(max-width: 1280px)',
+    medium: '(max-width: 980px)',
+    small: '(max-width: 736px)',
+    xsmall: '(max-width: 480px)',
+    xxsmall: '(max-width: 360px)'
   });
 
   $(() => {
     const $window = $(window);
-    const $body = $("body");
-    const $wrapper = $("#wrapper");
+    const $body = $('body');
+    const $wrapper = $('#wrapper');
 
     // Disable animations/transitions until the page has loaded.
     $body.addClass("is-loading");
@@ -61,9 +61,9 @@
           const $this = $(this);
           const $img = $this.children("img");
           const positionClass = $this
-              .parent()
-              .attr("class")
-              .match(/image-position-([a-z]+)/);
+            .parent()
+            .attr("class")
+            .match(/image-position-([a-z]+)/);
 
           // Set image.
           $this
@@ -182,9 +182,9 @@
 
     // Style #2.
     $(".gallery")
-      .on("wheel", ".inner", (event) => {
+      .on("wheel", ".inner", event => {
         const $this = $(this);
-        const delta = event.originalEvent.deltaX * 10;
+        let delta = event.originalEvent.deltaX * 10;
 
         // Cap delta.
         if (delta > 0) {
@@ -216,7 +216,7 @@
 
     // Lightbox.
     $(".gallery.lightbox")
-      .on("click", "a", (event) => {
+      .on("click", "a", event => {
         const $a = $(this);
         const $gallery = $a.parents(".gallery");
         const $modal = $gallery.children(".modal");
@@ -287,13 +287,15 @@
           }, 475);
         }, 125);
       })
-      .on("keypress", ".modal", (event) => {
+      .on("keypress", ".modal", event => {
         const $modal = $(this);
 
         // Escape? Hide modal.
         if (event.keyCode == 27) $modal.trigger("click");
       })
-      .prepend('<div class="modal" tabIndex="-1"><div class="inner"><img src="" /></div></div>')
+      .prepend(
+        '<div class="modal" tabIndex="-1"><div class="inner"><img src="" /></div></div>'
+      )
       .find("img")
       .on("load", () => {
         const $modalImg = $(this);
