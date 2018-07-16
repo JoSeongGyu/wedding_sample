@@ -2,891 +2,940 @@
 <html>
 
 <head>
-  <title>하나와 성규의 결혼식에 초대합니다</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="assets/dist/css/main.css" />
-  <link rel="stylesheet" href="assets/exports/css/custom.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-    crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=G7jXLlknBHrODuYNeqpo&submodules=geocoder"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
+	<title>하나와 성규의 결혼식에 초대합니다</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="assets/dist/css/main.css" />
+	<link rel="stylesheet" href="assets/exports/css/custom.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+	crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=G7jXLlknBHrODuYNeqpo&submodules=geocoder"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
 
-  <script src="assets/dist/js/vendor.min.js"></script>
-  <script src="assets/exports/js/jquery.min.js"></script>
-  <script src="assets/exports/js/jquery-ui.min.js"></script>
-  <script src="assets/exports/js/jquery.scrolly.min.js"></script>
-  <script src="assets/exports/js/jquery.scrollex.min.js"></script>
-  <script src="assets/exports/js/underscore.min.js"></script>
-  <script src="assets/exports/js/sha256.min.js"></script>
-  <script src="assets/exports/js/storage.js"></script>
-  <script src="assets/exports/js/skel.min.js"></script>
-  <script src="assets/exports/js/util.js"></script>
+	<script src="assets/dist/js/vendor.min.js"></script>
+	<script src="assets/exports/js/jquery.min.js"></script>
+	<script src="assets/exports/js/jquery-ui.min.js"></script>
+	<script src="assets/exports/js/jquery.scrolly.min.js"></script>
+	<script src="assets/exports/js/jquery.scrollex.min.js"></script>
+	<script src="assets/exports/js/underscore.min.js"></script>
+	<script src="assets/exports/js/sha256.min.js"></script>
+	<script src="assets/exports/js/storage.js"></script>
+	<script src="assets/exports/js/skel.min.js"></script>
+	<script src="assets/exports/js/util.js"></script>
 
-  <!-- Scripts -->
-  <script src="assets/dist/js/main.min.js"></script>
-  <script src="assets/dist/js/comment_list.min.js"></script>
+	<!-- Scripts -->
+	<script src="assets/dist/js/main.min.js"></script>
+	<script src="assets/dist/js/comment_list.min.js"></script>
 
-  <!-- Note: Only needed for demo purposes. Delete for production sites. -->
-  <script src="assets/exports/js/demo.js"></script>
+	<!-- Note: Only needed for demo purposes. Delete for production sites. -->
+	<!-- <script src="assets/exports/js/demo.js"></script> -->
 
 </head>
 
 <body>
-  <!-- Wrapper -->
-  <div id="wrapper" class="divided">
-    <!-- Banner -->
-    <section class="banner style1 orient-center content-align-center image-position-center fullscreen onload-image-fade-in onload-content-fade-right">
-      <div class="content">
-        <h1>하나랑 성규랑
-          <br/>결혼합니다 :)</h1>
-        <ul class="actions vertical">
-          <li>
-            <a href="#first" class="button big wide smooth-scroll-middle">저희 둘 이야기, 들어보실래요?</a>
-          </li>
-          <li>
-            <a href="#wayToCome" class="button small wide smooth-scroll-middle">아니요, 예식장 가는 길이나 알려줘요</a>
-          </li>
-        </ul>
-      </div>
-      <div class="image">
-        <img src="images/banner.png" alt="">
-      </div>
-    </section>
-    <section class="spotlight onscroll-image-fade-in style1 orient-left content-align-right image-position-center invert color6"
-      id="first">
-      <div class="content">
-        <p class="major"></p>
-        <p>누구에게나 밝게 인사하는
-          <br>한
-          <strong>소녀</strong>가 있었어요.
-          <br>그 인사를 매일같이 받던
-          <br>한
-          <strong>소년</strong>이 있었어요.
-          <br>
-          <br> 어느 순간부터인가
-          <br>그 소년이 먼저 다가가
-          <br>인사를 하게 되었답니다.
-          <br>그리고 소녀는 한결같이
-          <br>밝은 모습으로 인사를 나누었죠.</p>
-        <ul class="actions vertical">
-          <li>
-            <a href="#second" class="button big wide smooth-scroll-middle">이야기 더 들어보실래요?</a>
-          </li>
-        </ul>
-      </div>
-      <div class="image">
-        <img src="images/greeting.jpg" alt="" />
-      </div>
-    </section>
+	<!-- Wrapper -->
+	<div id="wrapper" class="divided">
+		<!-- Banner -->
+		<section class="banner style1 orient-center content-align-center image-position-center fullscreen onload-image-fade-in onload-content-fade-right">
+			<div class="content">
+				<h1>하나랑 성규랑
+					<br/>결혼합니다 :)</h1>
+					<ul class="actions vertical">
+						<li>
+							<a href="#first" class="button big wide smooth-scroll-middle">저희 둘 이야기, 들어보실래요?</a>
+						</li>
+						<li>
+							<a href="#wayToCome" class="button small wide smooth-scroll-middle">아니요, 예식장 가는 길이나 알려줘요</a>
+						</li>
+					</ul>
+				</div>
+				<div class="image">
+					<img src="images/banner.png" alt="">
+				</div>
+			</section>
+			<section class="spotlight onscroll-image-fade-in style1 orient-left content-align-right image-position-center invert color6"
+			id="first">
+			<div class="content">
+				<p class="major"></p>
+				<p>누구에게나 밝게 인사하는
+					<br>한
+					<strong>소녀</strong>가 있었어요.
+					<br>그 인사를 매일같이 받던
+					<br>한
+					<strong>소년</strong>이 있었어요.
+					<br>
+					<br> 어느 순간부터인가
+					<br>그 소년이 먼저 다가가
+					<br>인사를 하게 되었답니다.
+					<br>그리고 소녀는 한결같이
+					<br>밝은 모습으로 인사를 나누었죠.</p>
+					<ul class="actions vertical">
+						<li>
+							<a href="#second" class="button big wide smooth-scroll-middle">이야기 더 들어보실래요?</a>
+						</li>
+					</ul>
+				</div>
+				<div class="image">
+					<img src="images/greeting.jpg" alt="" />
+				</div>
+			</section>
 
-    <!-- Spotlight -->
-    <section class="spotlight onscroll-image-fade-in style2 orient-right content-align-left image-position-center invert color1"
-      id="second">
-      <div class="content">
-        <p>소년은 어느 날 깨달았어요.
-          <br>자신도 모르게 소녀에게
-          <br>점점 마음이 가고 있음을.
-          <br>어떻게 그녀와 이야기를 나눠볼 수 있을까?
-          <br>고민으로 하루하루가 지나갔죠.</p>
-        <ul class="actions vertical">
-          <li>
-            <a href="#third" class="button smooth-scroll-middle">아이쿠 저런</a>
-          </li>
-        </ul>
-      </div>
-      <div class="image">
-        <img src="images/headake.gif" alt="" />
-      </div>
-    </section>
+			<!-- Spotlight -->
+			<section class="spotlight onscroll-image-fade-in style2 orient-right content-align-left image-position-center invert color1"
+			id="second">
+			<div class="content">
+				<p>소년은 어느 날 깨달았어요.
+					<br>자신도 모르게 소녀에게
+					<br>점점 마음이 가고 있음을.
+					<br>어떻게 그녀와 이야기를 나눠볼 수 있을까?
+					<br>고민으로 하루하루가 지나갔죠.</p>
+					<ul class="actions vertical">
+						<li>
+							<a href="#third" class="button smooth-scroll-middle">아이쿠 저런</a>
+						</li>
+					</ul>
+				</div>
+				<div class="image">
+					<img src="images/headake.gif" alt="" />
+				</div>
+			</section>
 
-    <!-- Spotlight -->
-    <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="third">
-      <div class="content">
-        <h2>그러던 어느 날,</h2>
-        <p>여러 가지 일로 지쳐있던 그녀에게
-          <br>그가 용기 내 말합니다.
-          <br>
-          <b>
-            <i>'한강에 바람 쐬러 갈까요?'</i>
-          </b>
-          <br>
-          <br>소녀는 갑자기 영문도 모른 채
-          <br>같이 한강으로 갑니다.
-          <br>그날은, 너무 힘들어서
-          <br>아무 생각 없이
-          <br>답답한 마음을 풀고 싶었거든요.
-          <br>
-          <br>유난히 더웠던 여름날,
-          <br>약간은 서먹하고, 어색하지만
-          <br>
-          <strong>기분 좋았던 그날 밤</strong>부터
-          <br>소녀의 머릿속에
-          <strong>소년</strong>이
-          <br>조금씩 생각나기 시작했답니다.</p>
-        <ul class="actions vertical">
-          <li>
-            <a href="#fourth" class="button smooth-scroll-middle">후후, 작전에 성공했군요</a>
-          </li>
-        </ul>
-      </div>
-      <div class="image">
-        <img src="images/bridge.jpg" alt="" />
-      </div>
-    </section>
+			<!-- Spotlight -->
+			<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="third">
+				<div class="content">
+					<h2>그러던 어느 날,</h2>
+					<p>여러 가지 일로 지쳐있던 그녀에게
+						<br>그가 용기 내 말합니다.
+						<br>
+						<b>
+							<i>'한강에 바람 쐬러 갈까요?'</i>
+						</b>
+						<br>
+						<br>소녀는 갑자기 영문도 모른 채
+						<br>같이 한강으로 갑니다.
+						<br>그날은, 너무 힘들어서
+						<br>아무 생각 없이
+						<br>답답한 마음을 풀고 싶었거든요.
+						<br>
+						<br>유난히 더웠던 여름날,
+						<br>약간은 서먹하고, 어색하지만
+						<br>
+						<strong>기분 좋았던 그날 밤</strong>부터
+						<br>소녀의 머릿속에
+						<strong>소년</strong>이
+						<br>조금씩 생각나기 시작했답니다.</p>
+						<ul class="actions vertical">
+							<li>
+								<a href="#fourth" class="button smooth-scroll-middle">후후, 작전에 성공했군요</a>
+							</li>
+						</ul>
+					</div>
+					<div class="image">
+						<img src="images/bridge.jpg" alt="" />
+					</div>
+				</section>
 
-    <!-- Spotlight -->
-    <section class="spotlight style2 orient-right content-align-left image-position-center onscroll-image-fade-in" id="fourth">
-      <div class="content">
-        <h2>그렇게 몇 주가 지나고,</h2>
-        <p>
-          <strong>2016년 7월 20일</strong>
-          <br>소년은 말했습니다.
-          <br>
-          <b>
-            <i>‘아무 생각하지 말고 그냥 나랑 연애해요’</i>
-          </b>
-          <br>
-          <br>소녀는 망설였습니다.
-          <br>스스로의 감정에 대해 확신이 없었거든요.
-          <br>
-          <br>고민하던 소녀를 앞에 두고
-          <br> 소년은 다시 한번 말했습니다.
-          <br>
-          <b>
-            <i>‘그럼, 당신을 좋아하는 나를 믿어봐요'</i>
-          </b>
-          <br>
-          <br>그렇게 두 사람은 그 날,
-          <br>처음으로 손을 맞잡았습니다.</p>
-        <ul class="actions vertical">
-          <li>
-            <a href="#fifth" class="button smooth-scroll-middle">크아~ 두근두근</a>
-          </li>
-        </ul>
-      </div>
-      <div class="image">
-        <img src="images/hands.jpg" alt="" />
-      </div>
-    </section>
-
-
-    <!-- Spotlight -->
-    <section class="spotlight style2 orient-left content-align-left image-position-center onscroll-image-fade-in" id="fifth">
-      <div class="content">
-        <h2>네 계절이 지나고...</h2>
-        <p>어느 추운 겨울,
-          <br>
-          <br>한 달 전부터 무언가를 준비했던 소년은
-          <br>
-          <strong>엄청</strong> 긴장한 얼굴로
-          <br>소녀와 저녁 식사를 합니다.
-          <br>
-          <br>소녀는 무척 긴장한 소년이 괜히 귀여워
-          <br>새어 나오는 웃음을
-          <br>꾹꾹 참으며 식사를 했습니다.
-          <br>
-          <br>그리고 소년은 준비했던
-          <br>그 한마디를 건넵니다.
-          <br>
-          <br>
-          <b>
-            <i>'나와 평생 함께해줘요'</i>
-          </b>
-          <br>
-          <br>거짓말처럼 하늘에서 함박눈이 쏟아졌어요.
-          <br>펑펑 내리는 함박눈을 보던 소녀는
-          <br>
-          <strong>너무 행복해서</strong> 펑펑 울었답니다.</p>
-        <ul class="actions vertical">
-          <li>
-            <a href="#sixth" class="button smooth-scroll-middle">나도 눈물이 나려한다</a>
-          </li>
-        </ul>
-      </div>
-      <div class="image">
-        <img src="images/merryme.jpeg" alt="" />
-      </div>
-    </section>
+				<!-- Spotlight -->
+				<section class="spotlight style2 orient-right content-align-left image-position-center onscroll-image-fade-in" id="fourth">
+					<div class="content">
+						<h2>그렇게 몇 주가 지나고,</h2>
+						<p>
+							<strong>2016년 7월 20일</strong>
+							<br>소년은 말했습니다.
+							<br>
+							<b>
+								<i>‘아무 생각하지 말고 그냥 나랑 연애해요’</i>
+							</b>
+							<br>
+							<br>소녀는 망설였습니다.
+							<br>스스로의 감정에 대해 확신이 없었거든요.
+							<br>
+							<br>고민하던 소녀를 앞에 두고
+							<br> 소년은 다시 한번 말했습니다.
+							<br>
+							<b>
+								<i>‘그럼, 당신을 좋아하는 나를 믿어봐요'</i>
+							</b>
+							<br>
+							<br>그렇게 두 사람은 그 날,
+							<br>처음으로 손을 맞잡았습니다.</p>
+							<ul class="actions vertical">
+								<li>
+									<a href="#fifth" class="button smooth-scroll-middle">크아~ 두근두근</a>
+								</li>
+							</ul>
+						</div>
+						<div class="image">
+							<img src="images/hands.jpg" alt="" />
+						</div>
+					</section>
 
 
-    <!-- Spotlight -->
-    <section class="spotlight style2 orient-right content-align-left image-position-center onscroll-image-fade-in" id="sixth">
-      <div class="content">
-        <h2>그 소녀와 소년이
-          <br>이제 드디어
-          <br>
-          <strong>가족</strong>이 되려 합니다.</h2>
-        <p>
-          <strong>2018년 9월 8일 오후 1시</strong>
-          <br>
-          <br>귀여운 걸 엄청 좋아하는
-          <strong>하나</strong>랑
-          <br>그런 하나를 귀여워하는
-          <strong>성규</strong>가
-          <br>가족이 되는 첫날을
-          <br>함께 해주세요.</p>
-        <ul class="actions vertical">
-          <li>
-            <a href="#photos" class="button smooth-scroll-middle">네, 꼭 가겠습니다!</a>
-          </li>
-        </ul>
-      </div>
-      <div class="image">
-        <img src="images/wedding_hands.jpg" alt="" />
-      </div>
-    </section>
+					<!-- Spotlight -->
+					<section class="spotlight style2 orient-left content-align-left image-position-center onscroll-image-fade-in" id="fifth">
+						<div class="content">
+							<h2>네 계절이 지나고...</h2>
+							<p>어느 추운 겨울,
+								<br>
+								<br>한 달 전부터 무언가를 준비했던 소년은
+								<br>
+								<strong>엄청</strong> 긴장한 얼굴로
+								<br>소녀와 저녁 식사를 합니다.
+								<br>
+								<br>소녀는 무척 긴장한 소년이 괜히 귀여워
+								<br>새어 나오는 웃음을
+								<br>꾹꾹 참으며 식사를 했습니다.
+								<br>
+								<br>그리고 소년은 준비했던
+								<br>그 한마디를 건넵니다.
+								<br>
+								<br>
+								<b>
+									<i>'나와 평생 함께해줘요'</i>
+								</b>
+								<br>
+								<br>거짓말처럼 하늘에서 함박눈이 쏟아졌어요.
+								<br>펑펑 내리는 함박눈을 보던 소녀는
+								<br>
+								<strong>너무 행복해서</strong> 펑펑 울었답니다.</p>
+								<ul class="actions vertical">
+									<li>
+										<a href="#sixth" class="button smooth-scroll-middle">나도 눈물이 나려한다</a>
+									</li>
+								</ul>
+							</div>
+							<div class="image">
+								<img src="images/merryme.jpeg" alt="" />
+							</div>
+						</section>
 
 
-    <!-- Gallery -->
-    <div id="photos" class="gallery style2 medium lightbox onscroll-fade-in">
-      <article>
-        <a href="images/gallery/fulls/101.jpg" class="image">
-          <img src="images/gallery/thumbs/101.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/102.jpg" class="image">
-          <img src="images/gallery/thumbs/102.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/103.jpg" class="image">
-          <img src="images/gallery/thumbs/103.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/104.jpg" class="image">
-          <img src="images/gallery/thumbs/104.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/105.jpg" class="image">
-          <img src="images/gallery/thumbs/105.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/106.jpg" class="image">
-          <img src="images/gallery/thumbs/106.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/107.jpg" class="image">
-          <img src="images/gallery/thumbs/107.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/108.jpg" class="image">
-          <img src="images/gallery/thumbs/108.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/109.jpg" class="image">
-          <img src="images/gallery/thumbs/109.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/110.jpg" class="image">
-          <img src="images/gallery/thumbs/110.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/111.jpg" class="image">
-          <img src="images/gallery/thumbs/111.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/112.jpg" class="image">
-          <img src="images/gallery/thumbs/112.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/113.jpg" class="image">
-          <img src="images/gallery/thumbs/113.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/114.jpg" class="image">
-          <img src="images/gallery/thumbs/114.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/115.jpg" class="image">
-          <img src="images/gallery/thumbs/115.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3></h3>
-          <p></p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/01.jpg" class="image">
-          <img src="images/gallery/thumbs/01.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>애플스토어 데이트</h3>
-          <p>하나는 여기서 에어팟과 사랑에 빠져버렸습니다</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/02.jpg" class="image">
-          <img src="images/gallery/thumbs/02.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>연극 보기 전</h3>
-          <p>비가 참으로 많이 오던 그 날. 연극을 보기 전 곰돌이가 귀엽게 놓여있던 카페에서</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/03.jpg" class="image">
-          <img src="images/gallery/thumbs/03.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>울산에 처음 갔어요</h3>
-          <p>성규가 울산에 처음으로 인사드리러 간 날입니다. 긴장해서 표정 굳은거 봐.</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/04.jpg" class="image">
-          <img src="images/gallery/thumbs/04.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>꽃은 든 커플</h3>
-          <p>행사장에 예쁜 꽃을 들고 찍어봤어요.</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/05.jpg" class="image">
-          <img src="images/gallery/thumbs/05.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>꽤나 추웠던 늦가을</h3>
-          <p>옴팡 뒤집어쓰고 찍어보아요</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/06.jpg" class="image">
-          <img src="images/gallery/thumbs/06.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>벚꽃!!</h3>
-          <p>하나네 집 앞은 벚꽃이 정말 예뻐요!</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/07.jpg" class="image">
-          <img src="images/gallery/thumbs/07.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>나 프로포즈 받은 여자야~</h3>
-          <p>프로포즈 받은 그 날
-            <br>하나가 성규 앞에서 처음으로 펑펑 운 날</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/08.jpg" class="image">
-          <img src="images/gallery/thumbs/08.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>시원하제~</h3>
-          <p>시원한 물놀이 좋아요</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/09.jpg" class="image">
-          <img src="images/gallery/thumbs/09.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>화보다 화보여</h3>
-          <p>친구 결혼식가서 이게 뭐하는 짓이죠?</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/10.jpg" class="image">
-          <img src="images/gallery/thumbs/10.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>허허 쑥스럽구먼</h3>
-          <p>어른남자 한복을 처음 입어본 성규.
-            <br>어색해서 웃기만~</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/11.jpg" class="image">
-          <img src="images/gallery/thumbs/11.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>600일 데이트</h3>
-          <p>기념일엔 꽃을 선물할 줄 아는 남자
-            <br>(하나는 600일을 까먹고 있었더랬어요)</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/12.jpg" class="image">
-          <img src="images/gallery/thumbs/12.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>공연을 보러갔어요</h3>
-          <p>가끔 공연을 보러도 간답니다</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/13.jpg" class="image">
-          <img src="images/gallery/thumbs/13.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>이 날</h3>
-          <p>대학로에는 사람이 참 많았어요</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/14.jpg" class="image">
-          <img src="images/gallery/thumbs/14.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>처음 함께한 벚꽃놀이</h3>
-          <p>무심천에 벚꽃을 구경했어요</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/15.jpg" class="image">
-          <img src="images/gallery/thumbs/15.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>추우면</h3>
-          <p>남편옷은 아내꺼</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/16.jpg" class="image">
-          <img src="images/gallery/thumbs/16.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>하나님</h3>
-          <p>이건 언제일까요?</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/17.jpg" class="image">
-          <img src="images/gallery/thumbs/17.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>에버랜드</h3>
-          <p>히히 커플티 히히</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/18.jpg" class="image">
-          <img src="images/gallery/thumbs/18.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>무료 초청행사는</h3>
-          <p>언제나 환영이죠. 배 그득하게 부페를 즐깁니다. 후후</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/19.jpg" class="image">
-          <img src="images/gallery/thumbs/19.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>아잉</h3>
-          <p>수줍어라</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <a href="images/gallery/fulls/20.jpg" class="image">
-          <img src="images/gallery/thumbs/20.jpg" alt="" />
-        </a>
-        <div class="caption">
-          <h3>부산은</h3>
-          <p>역시 돼지국밥</p>
-          <ul class="actions">
-            <li>
-              <span class="button small">크게보기</span>
-            </li>
-          </ul>
-        </div>
-      </article>
-    </div>
-    </section>
+						<!-- Spotlight -->
+						<section class="spotlight style2 orient-right content-align-left image-position-center onscroll-image-fade-in" id="sixth">
+							<div class="content">
+								<h2>그 소녀와 소년이
+									<br>이제 드디어
+									<br>
+									<strong>가족</strong>이 되려 합니다.</h2>
+									<p>
+										<strong>2018년 9월 8일 오후 1시</strong>
+										<br>
+										<br>귀여운 걸 엄청 좋아하는
+										<strong>하나</strong>랑
+										<br>그런 하나를 귀여워하는
+										<strong>성규</strong>가
+										<br>가족이 되는 첫날을
+										<br>함께 해주세요.</p>
+										<ul class="actions vertical">
+											<li>
+												<a href="#photos" class="button smooth-scroll-middle">네, 꼭 가겠습니다!</a>
+											</li>
+										</ul>
+									</div>
+									<div class="image">
+										<img src="images/wedding_hands.jpg" alt="" />
+									</div>
+								</section>
 
-    <!-- Map -->
-    <section id="wayToCome" class="wrapper style1 align-center">
-      <div class="inner">
-        <h2>오시는 길</h2>
-        <h3>더빈컨벤션웨딩홀 4층 그랜드블룸</h3>
-        <h4>TEL <a href="tel:043-238-2222">043-238-2222</a></h4>
-        <h5>도로명주소</h5>
-        <p>충청북도 청주시 흥덕구 강내면 학천길 7</p>
-        <h5>지번주소</h5>
-        <p>충청북도 청주시 흥덕구 강내면 학천리 299-4</p>
-        <!-- <section class="wrapper style1 align-center"> -->
-        	<h3>예식장 팁</h3>
-        	<ul>
-        		<li>주차장 넓어요</li>
-        		<li>식당 정말 맛있어요</li>
-        		<li>식당에 예식 중계 스크린 없어요</li>
-        		<li>식당은 **시부터 **시까지 이용할 수 있어요</li>
-        	</ul><
-        	<!-- </section> -->
-        <div id="naverMap" style="width:100%;height:400px;"></div>
-        <ul class="actions small">
-          <li>
-            <a href="http://naver.me/xG2RxGkf" class="button small" target="_blank">네이버지도</a>
-          </li>
-          <li>
-            <a href="http://place.map.daum.net/19093453" class="button small" target="_blank">다음지도</a>
-          </li>
-        </ul>
-      </div>
-    </section>
-    <!-- !Map -->
 
-    <!-- Contact -->
-    <section class="wrapper style1 align-center">
-      <div class="inner">
-        <h2>신랑신부에게 연락하기</h2>
-        <p>응원의 메세지를 보내주세요</br>
-          <strong>스팸</strong>은 싫어요</p>
-        <div class="items style1 medium onscroll-fade-in">
-          <section>
-            <span class="icon style2 major fa-phone"></span>
-            <h3>전화</h3>
-            <ul class="icons">
-              <li>
-                <a href="tel:+821026707988" class="icon fa-mars">
-                  <span>&nbsp;조성규</span>
-                </a>
-              </li>
-              <li>
-                <a href="tel:+821088627333" class="icon fa-venus">
-                  <span>&nbsp;김하나</span>
-                </a>
-              </li>
-            </ul>
-          </section>
-          <section>
-            <span class="icon style2 major fa-envelope"></span>
-            <h3>메세지</h3>
-            <ul class="icons">
-              <li>
-                <a href="sms:+821026707988" class="icon fa-mars">
-                  <span>&nbsp;조성규</span>
-                </a>
-              </li>
-              <li>
-                <a href="sms:+821088627333" class="icon fa-venus">
-                  <span>&nbsp;김하나</span>
-                </a>
-              </li>
-            </ul>
-          </section>
-        </div>
-      </div>
-    </section>
-    <!-- !Contact -->
-    <!-- Form -->
-    <section class="wrapper style1">
-      <div class="inner">
-        <section>
-          <header>
-            <h3>응원의 한마디</h3>
-            <p>잘 살으라고, 재미있게 살으라고, 첫 출발을 축하한다고 예쁜 응원의 말씀 부탁드립니다 :D</p>
-          </header>
-          <div class="content">
-            <dl id="commentList"></dl>
-          </div>
-        </section>
-        <header>
-          <!--<h3>메세지 남기기</h3>-->
-        </header>
-        <div class="content">
-          <form id="messageForm" action="#">
-            <div class="field half first">
-              <label for="name">이름</label>
-              <input type="text" name="name" id="name" value="">
-            </div>
-            <div class="field half">
-              <label for="password">비밀번호</label>
-              <input type="password" name="password" id="password" value="">
-            </div>
-            <div class="field">
-              <label for="message">메세지</label>
-              <textarea name="message" id="message" rows="6"></textarea>
-            </div>
-            <ul class="actions">
-              <li>
-                <input type="submit" name="submit" id="submit" value="메세지 남기기">
-              </li>
-            </ul>
-          </form>
-        </div>
-      </div>
-    </section>
-    <!-- !Form -->
-  </div>
-  <div id="delete-dialog-form" title="삭제하기">
-    <p class="validateTips">내용을 삭제하시려면 비밀번호를 입력해주세요.</p>
-    <form>
-      <fieldset>
-        <label for="password">비밀번호</label>
-        <input type="hidden" name="key" id="deleteKey" class="modalInput">
-        <input type="password" name="password" id="deletePassword" class="text ui-widget-content ui-corner-all modalInput">
-        <!-- Allow form submission with keyboard without duplicating the dialog button -->
-        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-      </fieldset>
-    </form>
-  </div>
+								<!-- Gallery -->
+								<div id="photos" class="gallery style2 medium lightbox onscroll-fade-in">
+									<article>
+										<a href="images/gallery/fulls/101.jpg" class="image">
+											<img src="images/gallery/thumbs/101.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/102.jpg" class="image">
+											<img src="images/gallery/thumbs/102.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/103.jpg" class="image">
+											<img src="images/gallery/thumbs/103.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/104.jpg" class="image">
+											<img src="images/gallery/thumbs/104.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/105.jpg" class="image">
+											<img src="images/gallery/thumbs/105.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/106.jpg" class="image">
+											<img src="images/gallery/thumbs/106.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/107.jpg" class="image">
+											<img src="images/gallery/thumbs/107.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/108.jpg" class="image">
+											<img src="images/gallery/thumbs/108.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/109.jpg" class="image">
+											<img src="images/gallery/thumbs/109.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/110.jpg" class="image">
+											<img src="images/gallery/thumbs/110.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/111.jpg" class="image">
+											<img src="images/gallery/thumbs/111.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/112.jpg" class="image">
+											<img src="images/gallery/thumbs/112.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/113.jpg" class="image">
+											<img src="images/gallery/thumbs/113.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/114.jpg" class="image">
+											<img src="images/gallery/thumbs/114.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/115.jpg" class="image">
+											<img src="images/gallery/thumbs/115.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3></h3>
+											<p></p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/01.jpg" class="image">
+											<img src="images/gallery/thumbs/01.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3>애플스토어 데이트</h3>
+											<p>하나는 여기서 에어팟과 사랑에 빠져버렸습니다</p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/02.jpg" class="image">
+											<img src="images/gallery/thumbs/02.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3>연극 보기 전</h3>
+											<p>비가 참으로 많이 오던 그 날. 연극을 보기 전 곰돌이가 귀엽게 놓여있던 카페에서</p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/03.jpg" class="image">
+											<img src="images/gallery/thumbs/03.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3>울산에 처음 갔어요</h3>
+											<p>성규가 울산에 처음으로 인사드리러 간 날입니다. 긴장해서 표정 굳은거 봐.</p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/04.jpg" class="image">
+											<img src="images/gallery/thumbs/04.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3>꽃은 든 커플</h3>
+											<p>행사장에 예쁜 꽃을 들고 찍어봤어요.</p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/05.jpg" class="image">
+											<img src="images/gallery/thumbs/05.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3>꽤나 추웠던 늦가을</h3>
+											<p>옴팡 뒤집어쓰고 찍어보아요</p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/06.jpg" class="image">
+											<img src="images/gallery/thumbs/06.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3>벚꽃!!</h3>
+											<p>하나네 집 앞은 벚꽃이 정말 예뻐요!</p>
+											<ul class="actions">
+												<li>
+													<span class="button small">크게보기</span>
+												</li>
+											</ul>
+										</div>
+									</article>
+									<article>
+										<a href="images/gallery/fulls/07.jpg" class="image">
+											<img src="images/gallery/thumbs/07.jpg" alt="" />
+										</a>
+										<div class="caption">
+											<h3>나 프로포즈 받은 여자야~</h3>
+											<p>프로포즈 받은 그 날
+												<br>하나가 성규 앞에서 처음으로 펑펑 운 날</p>
+												<ul class="actions">
+													<li>
+														<span class="button small">크게보기</span>
+													</li>
+												</ul>
+											</div>
+										</article>
+										<article>
+											<a href="images/gallery/fulls/08.jpg" class="image">
+												<img src="images/gallery/thumbs/08.jpg" alt="" />
+											</a>
+											<div class="caption">
+												<h3>시원하제~</h3>
+												<p>시원한 물놀이 좋아요</p>
+												<ul class="actions">
+													<li>
+														<span class="button small">크게보기</span>
+													</li>
+												</ul>
+											</div>
+										</article>
+										<article>
+											<a href="images/gallery/fulls/09.jpg" class="image">
+												<img src="images/gallery/thumbs/09.jpg" alt="" />
+											</a>
+											<div class="caption">
+												<h3>화보다 화보여</h3>
+												<p>친구 결혼식가서 이게 뭐하는 짓이죠?</p>
+												<ul class="actions">
+													<li>
+														<span class="button small">크게보기</span>
+													</li>
+												</ul>
+											</div>
+										</article>
+										<article>
+											<a href="images/gallery/fulls/10.jpg" class="image">
+												<img src="images/gallery/thumbs/10.jpg" alt="" />
+											</a>
+											<div class="caption">
+												<h3>허허 쑥스럽구먼</h3>
+												<p>어른남자 한복을 처음 입어본 성규.
+													<br>어색해서 웃기만~</p>
+													<ul class="actions">
+														<li>
+															<span class="button small">크게보기</span>
+														</li>
+													</ul>
+												</div>
+											</article>
+											<article>
+												<a href="images/gallery/fulls/11.jpg" class="image">
+													<img src="images/gallery/thumbs/11.jpg" alt="" />
+												</a>
+												<div class="caption">
+													<h3>600일 데이트</h3>
+													<p>기념일엔 꽃을 선물할 줄 아는 남자
+														<br>(하나는 600일을 까먹고 있었더랬어요)</p>
+														<ul class="actions">
+															<li>
+																<span class="button small">크게보기</span>
+															</li>
+														</ul>
+													</div>
+												</article>
+												<article>
+													<a href="images/gallery/fulls/12.jpg" class="image">
+														<img src="images/gallery/thumbs/12.jpg" alt="" />
+													</a>
+													<div class="caption">
+														<h3>공연을 보러갔어요</h3>
+														<p>가끔 공연을 보러도 간답니다</p>
+														<ul class="actions">
+															<li>
+																<span class="button small">크게보기</span>
+															</li>
+														</ul>
+													</div>
+												</article>
+												<article>
+													<a href="images/gallery/fulls/13.jpg" class="image">
+														<img src="images/gallery/thumbs/13.jpg" alt="" />
+													</a>
+													<div class="caption">
+														<h3>이 날</h3>
+														<p>대학로에는 사람이 참 많았어요</p>
+														<ul class="actions">
+															<li>
+																<span class="button small">크게보기</span>
+															</li>
+														</ul>
+													</div>
+												</article>
+												<article>
+													<a href="images/gallery/fulls/14.jpg" class="image">
+														<img src="images/gallery/thumbs/14.jpg" alt="" />
+													</a>
+													<div class="caption">
+														<h3>처음 함께한 벚꽃놀이</h3>
+														<p>무심천에 벚꽃을 구경했어요</p>
+														<ul class="actions">
+															<li>
+																<span class="button small">크게보기</span>
+															</li>
+														</ul>
+													</div>
+												</article>
+												<article>
+													<a href="images/gallery/fulls/15.jpg" class="image">
+														<img src="images/gallery/thumbs/15.jpg" alt="" />
+													</a>
+													<div class="caption">
+														<h3>추우면</h3>
+														<p>남편옷은 아내꺼</p>
+														<ul class="actions">
+															<li>
+																<span class="button small">크게보기</span>
+															</li>
+														</ul>
+													</div>
+												</article>
+												<article>
+													<a href="images/gallery/fulls/16.jpg" class="image">
+														<img src="images/gallery/thumbs/16.jpg" alt="" />
+													</a>
+													<div class="caption">
+														<h3>하나님</h3>
+														<p>이건 언제일까요?</p>
+														<ul class="actions">
+															<li>
+																<span class="button small">크게보기</span>
+															</li>
+														</ul>
+													</div>
+												</article>
+												<article>
+													<a href="images/gallery/fulls/17.jpg" class="image">
+														<img src="images/gallery/thumbs/17.jpg" alt="" />
+													</a>
+													<div class="caption">
+														<h3>에버랜드</h3>
+														<p>히히 커플티 히히</p>
+														<ul class="actions">
+															<li>
+																<span class="button small">크게보기</span>
+															</li>
+														</ul>
+													</div>
+												</article>
+												<article>
+													<a href="images/gallery/fulls/18.jpg" class="image">
+														<img src="images/gallery/thumbs/18.jpg" alt="" />
+													</a>
+													<div class="caption">
+														<h3>무료 초청행사는</h3>
+														<p>언제나 환영이죠. 배 그득하게 부페를 즐깁니다. 후후</p>
+														<ul class="actions">
+															<li>
+																<span class="button small">크게보기</span>
+															</li>
+														</ul>
+													</div>
+												</article>
+												<article>
+													<a href="images/gallery/fulls/19.jpg" class="image">
+														<img src="images/gallery/thumbs/19.jpg" alt="" />
+													</a>
+													<div class="caption">
+														<h3>아잉</h3>
+														<p>수줍어라</p>
+														<ul class="actions">
+															<li>
+																<span class="button small">크게보기</span>
+															</li>
+														</ul>
+													</div>
+												</article>
+												<article>
+													<a href="images/gallery/fulls/20.jpg" class="image">
+														<img src="images/gallery/thumbs/20.jpg" alt="" />
+													</a>
+													<div class="caption">
+														<h3>부산은</h3>
+														<p>역시 돼지국밥</p>
+														<ul class="actions">
+															<li>
+																<span class="button small">크게보기</span>
+															</li>
+														</ul>
+													</div>
+												</article>
+											</div>
+										</section>
 
-  <div id="update-dialog-form" title="수정하기">
-    <form>
-      <fieldset>
-        <label for="name">이름</label>
-        <input type="text" name="name" id="updateUsername" value="" class="text ui-widget-content ui-corner-all modalInput">
-        <label for="updatePassword">비밀번호</label>
-        <input type="password" name="password" id="updatePassword" class="text ui-widget-content ui-corner-all modalInput">
-        <label for="updateContent">내용</label>
-        <textarea type="text" name="content" id="updateContent" value="" class="text ui-widget-content ui-corner-all modalInput"
-          rows="5" style="resize:none;"></textarea>
-        <input type="hidden" name="key" id="updateKey" class="modalInput">
-        <!-- Allow form submission with keyboard without duplicating the dialog button -->
-        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-      </fieldset>
-    </form>
-  </div>
+										<!-- Map -->
+										<section id="wayToCome" class="wrapper style1 align-center">
+											<div class="inner">
+												<h2>오시는 길</h2>
+												<h3>더빈컨벤션웨딩홀 4층 그랜드블룸</h3>
+												<h4>TEL <a href="tel:043-238-2222">043-238-2222</a></h4>
+												<h5>도로명주소</h5>
+												<p>충청북도 청주시 흥덕구 강내면 학천길 7</p>
+												<h5>지번주소</h5>
+												<p>충청북도 청주시 흥덕구 강내면 학천리 299-4</p>
+												<!-- <section class="wrapper style1 align-center"> -->
+													<h3>예식장 팁</h3>
+													<ul>
+														<li>주차장 넓어요</li>
+														<li>식당 정말 맛있어요</li>
+														<li>식당에 예식 중계 스크린 없어요</li>
+														<li>식당은 **시부터 **시까지 이용할 수 있어요</li>
+													</ul><
+													<!-- </section> -->
+													<div id="naverMap" style="width:100%;height:400px;"></div>
+													<ul class="actions small">
+														<li>
+															<a href="http://naver.me/xG2RxGkf" class="button small" target="_blank">네이버지도</a>
+														</li>
+														<li>
+															<a href="http://place.map.daum.net/19093453" class="button small" target="_blank">다음지도</a>
+														</li>
+													</ul>
+												</div>
+											</section>
+											<!-- !Map -->
+
+											<!-- Contact -->
+											<section class="wrapper style1 align-center">
+												<div class="inner">
+													<h2>신랑신부에게 연락하기</h2>
+													<p>응원의 메세지를 보내주세요</br>
+														<strong>스팸</strong>은 싫어요</p>
+														<div class="items style1 medium onscroll-fade-in">
+															<section>
+																<span class="icon style2 major fa-phone"></span>
+																<h3>전화</h3>
+																<ul class="icons">
+																	<li>
+																		<a href="tel:+821026707988" class="icon fa-mars">
+																			<span>&nbsp;조성규</span>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="tel:+821088627333" class="icon fa-venus">
+																			<span>&nbsp;김하나</span>
+																		</a>
+																	</li>
+																</ul>
+															</section>
+															<section>
+																<span class="icon style2 major fa-envelope"></span>
+																<h3>메세지</h3>
+																<ul class="icons">
+																	<li>
+																		<a href="sms:+821026707988" class="icon fa-mars">
+																			<span>&nbsp;조성규</span>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="sms:+821088627333" class="icon fa-venus">
+																			<span>&nbsp;김하나</span>
+																		</a>
+																	</li>
+																</ul>
+															</section>
+														</div>
+													</div>
+												</section>
+												<!-- !Contact -->
+												<!-- Form -->
+												<section class="wrapper style1">
+													<div class="inner">
+														<section>
+															<header>
+																<h3>응원의 한마디</h3>
+																<p>잘 살으라고, 재미있게 살으라고, 첫 출발을 축하한다고 예쁜 응원의 말씀 부탁드립니다 :D</p>
+															</header>
+															<div class="content">
+																<dl id="commentList"></dl>
+															</div>
+														</section>
+														<header>
+															<!--<h3>메세지 남기기</h3>-->
+														</header>
+														<div class="content">
+															<form id="messageForm" action="#">
+																<div class="field half first">
+																	<label for="name">이름</label>
+																	<input type="text" name="name" id="name" value="">
+																</div>
+																<div class="field half">
+																	<label for="password">비밀번호</label>
+																	<input type="password" name="password" id="password" value="">
+																</div>
+																<div class="field">
+																	<label for="message">메세지</label>
+																	<textarea name="message" id="message" rows="6"></textarea>
+																</div>
+																<ul class="actions">
+																	<li>
+																		<input type="submit" name="submit" id="submit" value="메세지 남기기">
+																	</li>
+																</ul>
+															</form>
+														</div>
+													</div>
+												</section>
+												<!-- !Form -->
+											</div>
+											<div id="delete-dialog-form" title="삭제하기">
+												<p class="validateTips">내용을 삭제하시려면 비밀번호를 입력해주세요.</p>
+												<form>
+													<fieldset>
+														<label for="password">비밀번호</label>
+														<input type="hidden" name="key" id="deleteKey" class="modalInput">
+														<input type="password" name="password" id="deletePassword" class="text ui-widget-content ui-corner-all modalInput">
+														<!-- Allow form submission with keyboard without duplicating the dialog button -->
+														<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+													</fieldset>
+												</form>
+											</div>
+
+											<div id="update-dialog-form" title="수정하기">
+												<form>
+													<fieldset>
+														<label for="name">이름</label>
+														<input type="text" name="name" id="updateUsername" value="" class="text ui-widget-content ui-corner-all modalInput">
+														<label for="updatePassword">비밀번호</label>
+														<input type="password" name="password" id="updatePassword" class="text ui-widget-content ui-corner-all modalInput">
+														<label for="updateContent">내용</label>
+														<textarea type="text" name="content" id="updateContent" value="" class="text ui-widget-content ui-corner-all modalInput"
+														rows="5" style="resize:none;"></textarea>
+														<input type="hidden" name="key" id="updateKey" class="modalInput">
+														<!-- Allow form submission with keyboard without duplicating the dialog button -->
+														<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+													</fieldset>
+												</form>
+											</div>
+											
+  <!-- Calling Native App -->
+  <script>
+  	var callNaverMapApp = function () {
+  		console.log("naver");
+  	}
+  	var callKakaoMapApp = function () { }
+  </script>
+
+  <!-- Naver Map -->
+  <script>
+  	var map = new naver.maps.Map('naverMap', {
+      zoom: 9, //지도의 초기 줌 레벨
+      minZoom: 1, //지도의 최소 줌 레벨
+      zoomControl: true, //줌 컨트롤의 표시 여부
+      scrollWheel: false,
+  });
+    var myaddress = '충청북도 청주시 흥덕구 강내면 학천길 7';// 도로명 주소나 지번 주소만 가능 (건물명 불가!!!!)
+    naver.maps.Service.geocode({ address: myaddress }, function (status, response) {
+    	if (status !== naver.maps.Service.Status.OK) {
+    		return alert('네이버 인증값을 확인해주세요.');
+    	}
+    	var result = response.result;
+      // 검색 결과 갯수: result.total
+      // 첫번째 결과 결과 주소: result.items[0].address
+      // 첫번째 검색 결과 좌표: result.items[0].point.y, result.items[0].point.x
+      var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
+      map.setCenter(myaddr); // 검색된 좌표로 지도 이동
+      // 마커 표시
+      var marker = new naver.maps.Marker({
+      	position: myaddr,
+      	map: map
+      });
+      // 마커 클릭 이벤트 처리
+      naver.maps.Event.addListener(marker, "click", function (e) {
+      	if (infowindow.getMap()) {
+      		infowindow.close();
+      	} else {
+      		infowindow.open(map, marker);
+      	}
+      });
+      // 마크 클릭시 인포윈도우 오픈
+      var infowindow = new naver.maps.InfoWindow({
+      	content: '<div style="padding:0px 8px"><a href="http://naver.me/xG2RxGkf" target="_blank" style="text-decoration: none;font-size:14px;">더빈컨벤션웨딩홀 4층 그랜드블룸</a></div>'
+      });
+  });
+
+</script>
+</body>
 <!-- Footer -->
-    <footer class="wrapper style1 align-center">
-      <div class="inner">
+											<footer class="wrapper style1 align-center">
+												<div class="inner">
         <!-- <ul class="icons">
           <li>
             <a href="#" class="icon style2 fa-twitter">
@@ -913,58 +962,9 @@
               <span class="label">Email</span>
             </a>
           </li>
-        </ul> -->
-        <p>&copy; 성규, 하나, 정훈, 준우<br>
-        	이 청첩장은 성규와 하나가 작성하고<br>성규와 정훈과 준우가 함께 만들었어요</p>
+      </ul> -->
+      <p>&copy; 성규, 하나, 정훈, 준우<br>
+      	이 청첩장은 성규와 하나가 작성하고<br>성규와 정훈과 준우가 함께 만들었어요</p>
       </div>
-    </footer>
-  <!-- Calling Native App -->
-  <script>
-    var callNaverMapApp = function () {
-      console.log("naver");
-    }
-    var callKakaoMapApp = function () { }
-  </script>
-
-  <!-- Naver Map -->
-  <script>
-    var map = new naver.maps.Map('naverMap', {
-      zoom: 9, //지도의 초기 줌 레벨
-      minZoom: 1, //지도의 최소 줌 레벨
-      zoomControl: true, //줌 컨트롤의 표시 여부
-      scrollWheel: false,
-    });
-    var myaddress = '충청북도 청주시 흥덕구 강내면 학천길 7';// 도로명 주소나 지번 주소만 가능 (건물명 불가!!!!)
-    naver.maps.Service.geocode({ address: myaddress }, function (status, response) {
-      if (status !== naver.maps.Service.Status.OK) {
-        return alert('네이버 인증값을 확인해주세요.');
-      }
-      var result = response.result;
-      // 검색 결과 갯수: result.total
-      // 첫번째 결과 결과 주소: result.items[0].address
-      // 첫번째 검색 결과 좌표: result.items[0].point.y, result.items[0].point.x
-      var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
-      map.setCenter(myaddr); // 검색된 좌표로 지도 이동
-      // 마커 표시
-      var marker = new naver.maps.Marker({
-        position: myaddr,
-        map: map
-      });
-      // 마커 클릭 이벤트 처리
-      naver.maps.Event.addListener(marker, "click", function (e) {
-        if (infowindow.getMap()) {
-          infowindow.close();
-        } else {
-          infowindow.open(map, marker);
-        }
-      });
-      // 마크 클릭시 인포윈도우 오픈
-      var infowindow = new naver.maps.InfoWindow({
-        content: '<div style="padding:0px 8px"><a href="http://naver.me/xG2RxGkf" target="_blank" style="text-decoration: none;font-size:14px;">더빈컨벤션웨딩홀 4층 그랜드블룸</a></div>'
-      });
-    });
-
-  </script>
-</body>
-
+  </footer>
 </html>
