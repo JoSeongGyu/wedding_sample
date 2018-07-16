@@ -183,6 +183,7 @@
     // Style #2.
     $(".gallery")
       .on("wheel", ".inner", function(event) {
+        event.preventDefault();
         const $this = $(this);
         let delta = event.originalEvent.deltaX * 10;
         // Cap delta.

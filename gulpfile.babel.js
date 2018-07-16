@@ -32,5 +32,3 @@ gulp.task(
 gulp.task('style_watch', () => {
   gulp.watch([`${srcPath.css}/**/*.scss`, `${srcPath.css}/**/*.sass`], ['sass']);
 });
-
-gulp.task('build', ['sass']);

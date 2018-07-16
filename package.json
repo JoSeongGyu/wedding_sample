@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "build": "webpack & gulp build",
+    "build": "webpack & gulp sass",
     "build:dev": "webpack -w & gulp style_watch"
   },
   "repository": {
@@ -41,7 +41,7 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.0",
     "eslint-plugin-react": "^7.10.0",
-    "gulp": "3.9.0",
+    "gulp": "^3.9.1",
     "gulp-sass": "^4.0.1",
     "path": "^0.12.7",
     "webpack": "^4.15.1",
