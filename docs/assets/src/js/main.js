@@ -1,30 +1,30 @@
 ($ => {
   skel.breakpoints({
-    xlarge: '(max-width: 1680px)',
-    large: '(max-width: 1280px)',
-    medium: '(max-width: 980px)',
-    small: '(max-width: 736px)',
-    xsmall: '(max-width: 480px)',
-    xxsmall: '(max-width: 360px)'
+    xlarge: "(max-width: 1680px)",
+    large: "(max-width: 1280px)",
+    medium: "(max-width: 980px)",
+    small: "(max-width: 736px)",
+    xsmall: "(max-width: 480px)",
+    xxsmall: "(max-width: 360px)"
   });
 
-  $(() => {
+  $(function() {
     const $window = $(window);
-    const $body = $('body');
-    const $wrapper = $('#wrapper');
+    const $body = $("body");
+    const $wrapper = $("#wrapper");
 
     // Disable animations/transitions until the page has loaded.
     $body.addClass("is-loading");
 
-    $window.on("load", () => {
-      window.setTimeout(() => $body.removeClass("is-loading"), 100);
+    $window.on("load", function() {
+      window.setTimeout(function() {$body.removeClass("is-loading")}, 100);
     });
 
     // Fix: Placeholder polyfill.
     $("form").placeholder();
 
     // Prioritize "important" elements on medium.
-    skel.on("+medium -medium", () => {
+    skel.on("+medium -medium", function() {
       $.prioritize(
         ".important\\28 medium\\29",
         skel.breakpoint("medium").active
@@ -35,16 +35,16 @@
 
     // IE: Flexbox min-height bug.
     if (skel.vars.browser == "ie") {
-      (() => {
+      (function() {
         let flexboxFixTimeoutId;
 
         $window
-          .on("resize.flexbox-fix", () => {
+          .on("resize.flexbox-fix", function() {
             const $x = $(".fullscreen");
 
             clearTimeout(flexboxFixTimeoutId);
 
-            flexboxFixTimeoutId = setTimeout(() => {
+            flexboxFixTimeoutId = setTimeout(function() {
               if ($x.prop("scrollHeight") > $window.height())
                 $x.css("height", "auto");
               else $x.css("height", "100vh");
@@ -56,8 +56,8 @@
 
     // Object fit workaround.
     if (!skel.canUse("object-fit")) {
-      (() => {
-        $(".banner .image, .spotlight .image").each(() => {
+      (function() {
+        $(".banner .image, .spotlight .image").each(function() {
           const $this = $(this);
           const $img = $this.children("img");
           const positionClass = $this
@@ -101,16 +101,16 @@
     $wrapper.children().scrollex({
       top: "30vh",
       bottom: "30vh",
-      initialize: () => {
+      initialize: function() {
         $(this).addClass("is-inactive");
       },
-      terminate: () => {
+      terminate: function() {
         $(this).removeClass("is-inactive");
       },
-      enter: () => {
+      enter: function() {
         $(this).removeClass("is-inactive");
       },
-      leave: () => {
+      leave: function() {
         var $this = $(this);
 
         if ($this.hasClass("onscroll-bidirectional"))
@@ -124,16 +124,16 @@
         top: "30vh",
         bottom: "30vh",
         delay: 50,
-        initialize: () => {
+        initialize: function() {
           $(this).addClass("is-inactive");
         },
-        terminate: () => {
+        terminate: function() {
           $(this).removeClass("is-inactive");
         },
-        enter: () => {
+        enter: function() {
           $(this).removeClass("is-inactive");
         },
-        leave: () => {
+        leave: function() {
           var $this = $(this);
 
           if ($this.hasClass("onscroll-bidirectional"))
@@ -155,16 +155,16 @@
         top: "30vh",
         bottom: "30vh",
         delay: 50,
-        initialize: () => {
+        initialize: function() {
           $(this).addClass("is-inactive");
         },
-        terminate: () => {
+        terminate: function() {
           $(this).removeClass("is-inactive");
         },
-        enter: () => {
+        enter: function() {
           $(this).removeClass("is-inactive");
         },
-        leave: () => {
+        leave: function() {
           const $this = $(this);
 
           if ($this.hasClass("onscroll-bidirectional"))
@@ -182,10 +182,9 @@
 
     // Style #2.
     $(".gallery")
-      .on("wheel", ".inner", event => {
+      .on("wheel", ".inner", function(event) {
         const $this = $(this);
         let delta = event.originalEvent.deltaX * 10;
-
         // Cap delta.
         if (delta > 0) {
           delta = Math.min(25, delta);
@@ -193,10 +192,11 @@
           delta = Math.max(-25, delta);
         }
 
+        window.a = $this;
         // Scroll.
         $this.scrollLeft($this.scrollLeft() + delta);
       })
-      .on("mouseenter", ".forward, .backward", () => {
+      .on("mouseenter", ".forward, .backward", function() {
         const $this = $(this);
         const $inner = $this.siblings(".inner");
         const direction = $this.hasClass("forward") ? 1 : -1;
@@ -205,18 +205,18 @@
         clearInterval(this._gallery_moveIntervalId);
 
         // Start interval.
-        this._gallery_moveIntervalId = setInterval(() => {
+        this._gallery_moveIntervalId = setInterval(function() {
           $inner.scrollLeft($inner.scrollLeft() + 5 * direction);
         }, 10);
       })
-      .on("mouseleave", ".forward, .backward", () => {
+      .on("mouseleave", ".forward, .backward", function() {
         // Clear move interval.
         clearInterval(this._gallery_moveIntervalId);
       });
 
     // Lightbox.
     $(".gallery.lightbox")
-      .on("click", "a", event => {
+      .on("click", "a", function(event) {
         const $a = $(this);
         const $gallery = $a.parents(".gallery");
         const $modal = $gallery.children(".modal");
@@ -250,12 +250,12 @@
         $modal.focus();
 
         // Delay.
-        setTimeout(() => {
+        setTimeout(function() {
           // Unlock.
           $modal[0]._locked = false;
         }, 600);
       })
-      .on("click", ".modal", () => {
+      .on("click", ".modal", function() {
         const $modal = $(this);
         const $modalImg = $modal.find("img");
 
@@ -272,10 +272,10 @@
         $modal.removeClass("loaded");
 
         // Delay.
-        setTimeout(() => {
+        setTimeout(function() {
           $modal.removeClass("visible");
 
-          setTimeout(() => {
+          setTimeout(function() {
             // Clear src.
             $modalImg.attr("src", "");
 
@@ -287,7 +287,7 @@
           }, 475);
         }, 125);
       })
-      .on("keypress", ".modal", event => {
+      .on("keypress", ".modal", function(event) {
         const $modal = $(this);
 
         // Escape? Hide modal.
@@ -297,11 +297,11 @@
         '<div class="modal" tabIndex="-1"><div class="inner"><img src="" /></div></div>'
       )
       .find("img")
-      .on("load", () => {
+      .on("load", function() {
         const $modalImg = $(this);
         const $modal = $modalImg.parents(".modal");
 
-        setTimeout(() => {
+        setTimeout(function() {
           // No longer visible? Bail.
           if (!$modal.hasClass("visible")) return;
 
