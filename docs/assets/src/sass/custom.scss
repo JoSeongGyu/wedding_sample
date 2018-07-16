@@ -3,8 +3,34 @@
   padding: 0;
 }
 
-.commentList {
-  .comment_title {
-    border-top: 1px solid #e9e9e9;
-  }
+.comment_title {
+  height: 36px;
+  margin: 0;
+  padding: 10px 0 5px 0;
+  border-top: 1px solid #e9e9e9;
+}
+
+.ctitle {
+  vertical-align: top;
+  line-height: 36px;
+  vertical-align: 36px;
+}
+
+button.comment-edit,
+button.comment-delete {
+  height: 36px;
+  line-height: 36px;
+  padding: 0;
+  vertical-align: top;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  float: right;
+}
+
+.comment_text {
+  padding-bottom: 10px;
+}
+.comment_text p {
+  margin: 0;
 }
