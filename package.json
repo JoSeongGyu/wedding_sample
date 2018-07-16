@@ -7,8 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "build": "webpack",
-    "build:dev": "webpack -w"
+    "build": "webpack & gulp build",
+    "build:dev": "webpack -w & gulp style_watch"
   },
   "repository": {
     "type": "git",

@@ -1,76 +1,73 @@
-import * as _ from 'underscore';
+import _ from 'underscore';
 
-var deleteDialog, updateDialog, dismissDialogs;
+const dismissDialogs = () => {
+  $(".modalInput").val("");
+  deleteDialog.dialog("close");
+  updateDialog.dialog("close");
+};
 
-function getKeyFormDataProp($dom) {
+const dialogDefaultOption = {
+  autoOpen: false,
+  height: 400,
+  width: 350,
+  modal: true,
+  close: dismissDialogs
+};
+
+export function getKeyFormDataProp($dom) {
   return $dom.parent().data("key");
 }
-function getUsernameFromProp($dom) {
+export function getUsernameFromProp($dom) {
   return $dom
     .parent()
     .find(".ctitle")
     .html();
 }
-function getContentFromProp($dom) {
+export function getContentFromProp($dom) {
   return $dom
     .parent()
     .next()
     .find("p")
     .html();
 }
-dismissDialogs = function() {
-  $(".modalInput").val("");
-  deleteDialog.dialog("close");
-  updateDialog.dialog("close");
-};
 
-$(document).ready(function() {
-  var dialogDefaultOption = {
-    autoOpen: false,
-    height: 400,
-    width: 350,
-    modal: true,
-    close: dismissDialogs
-  };
+export const deleteDialog = $("#delete-dialog-form").dialog(
+  _.extend(dialogDefaultOption, {
+    buttons: {
+      삭제하기: () => {
+        const password = $("#deletePassword").val();
+        const key = $("#deleteKey").val();
+        fbdb.delete(key, password, (result) => {
+          if (!result) {
+            alert("비밀번호가 일치하지 않습니다.");
+          } else {
+            dismissDialogs();
+          }
+        });
+      },
+      취소: dismissDialogs
+    }
+  })
+);
 
-  deleteDialog = $("#delete-dialog-form").dialog(
-    _.extend(dialogDefaultOption, {
-      buttons: {
-        삭제하기: function() {
-          var password = $("#deletePassword").val();
-          var key = $("#deleteKey").val();
-          fbdb.delete(key, password, function(result) {
-            if (!result) {
-              alert("비밀번호가 일치하지 않습니다.");
-            } else {
-              dismissDialogs();
-            }
-          });
-        },
-        취소: dismissDialogs
-      }
-    })
-  );
-
-  updateDialog = $("#update-dialog-form").dialog(
-    _.extend(dialogDefaultOption, {
-      height: 550,
-      buttons: {
-        수정하기: function() {
-          var username = $("#updateUsername").val();
-          var content = $("#updateContent").val();
-          var password = $("#updatePassword").val();
-          var key = $("#updateKey").val();
-          fbdb.update(key, username, content, password, function(result) {
-            if (!result) {
-              alert("비밀번호가 일치하지 않습니다.");
-            } else {
-              dismissDialogs();
-            }
-          });
-        },
-        취소: dismissDialogs
-      }
-    })
-  );
-});
+export const updateDialog = $("#update-dialog-form").dialog(
+  _.extend(dialogDefaultOption, {
+    height: 550,
+    buttons: {
+      수정하기: () => {
+        const username = $("#updateUsername").val();
+        const content = $("#updateContent").val();
+        const password = $("#updatePassword").val();
+        const key = $("#updateKey").val();
+        fbdb.update(key, username, content, password, (result) => {
+          if (!result) {
+            alert("비밀번호가 일치하지 않습니다.");
+          } else {
+            dismissDialogs();
+          }
+        });
+      },
+      취소: dismissDialogs
+    }
+  })
+);
