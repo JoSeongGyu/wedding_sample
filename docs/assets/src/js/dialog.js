@@ -41,6 +41,11 @@ $(function() {
         삭제하기: () => {
           const password = $("#deletePassword").val();
           const key = $("#deleteKey").val();
+            if(!password || password.length < 4) {
+                alert("비밀번호는 4자 이상 입력해주세요.");
+                $("#deletePassword").focus();
+                return;
+            }
           fbdb.delete(key, password, (result) => {
             if (!result) {
               alert("비밀번호가 일치하지 않습니다.");
@@ -59,10 +64,33 @@ $(function() {
       height: 550,
       buttons: {
         수정하기: () => {
-          const username = $("#updateUsername").val();
-          const content = $("#updateContent").val();
-          const password = $("#updatePassword").val();
-          const key = $("#updateKey").val();
+            const $username = $("#updateUsername");
+            const $password = $("#updatePassword");
+            const $content = $("#updateContent");
+
+            const username = $username.val().trim();
+            const password = $password.val().trim();
+            const content = $content.val().trim();
+            const key = $("#updateKey").val();
+
+            if(!username || username.length < 2) {
+                alert("이름은 2글자 이상 입력해주세요.");
+                $username.focus();
+                return;
+            }
+
+            if(!password || password.length < 4) {
+                alert("비밀번호는 4자 이상 입력해주세요.");
+                $password.focus();
+                return;
+            }
+
+            if(!content || content.length < 4) {
+                alert("축하메세지는 4자 이상 입력해주세요.");
+                $content.focus();
+                return;
+            }
+
           fbdb.update(key, username, content, password, (result) => {
             if (!result) {
               alert("비밀번호가 일치하지 않습니다.");

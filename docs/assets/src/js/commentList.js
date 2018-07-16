@@ -42,15 +42,37 @@ $(function() {
 
   $("#messageForm").submit((e) => {
     e.preventDefault();
-    const $username = $("input[name=name]");
-    const $password = $("input[name=password]");
-    const $message = $("textarea[name=message]");
-    const response = fbdb.write($username.val(), $password.val(), $message.val());
+      const $username = $("#messageForm input[name=name]");
+      const $password = $("#messageForm input[name=password]");
+      const $message = $("#messageForm textarea[name=message]");
 
-    if (response.success) {
-      $username.val("");
-      $password.val("");
-      $message.val("");
-    }
+      const username = $username.val().trim();
+      const password = $password.val().trim();
+      const message = $message.val().trim();
+
+      if(!username || username.length < 2) {
+          alert("이름은 2글자 이상 입력해주세요.");
+          $username.focus();
+          return;
+      }
+
+      if(!password || password.length < 4) {
+          alert("비밀번호는 4자 이상 입력해주세요.");
+          $password.focus();
+          return;
+      }
+
+      if(!message || message.length < 4) {
+          alert("축하메세지는 4자 이상 입력해주세요.");
+          $message.focus();
+          return;
+      }
+      const response = fbdb.write(username, password, message);
+
+      if (response.success) {
+          $username.val("");
+          $password.val("");
+          $message.val("");
+      }
   });
 })
