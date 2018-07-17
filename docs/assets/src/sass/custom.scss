@@ -3,6 +3,13 @@
   padding: 0;
 }
 
+#messageForm {
+  & label {
+    margin: 20px 0 5px;
+  }
+}
+
+
 .comment_title {
   height: 36px;
   margin: 0;
@@ -12,6 +19,9 @@
 .comment_text {
   margin: 0;
   padding-top: 15px;
+  &:last-child {
+    border-bottom: 2px solid #e9e9e9;
+  }
 }
 .ctitle {
   vertical-align: top;
@@ -30,6 +40,7 @@ button.comment-delete {
   border-radius: 0;
   float: right;
 }
+
 
 .comment_text {
   padding-bottom: 10px;
