@@ -5904,3 +5904,6 @@ button.comment-delete {
   #delete-dialog-form .validateTips {
     margin: 20px 0 5px 0;
     text-align: center; }
+
+.spotlight {
+  min-height: 100vh; }
