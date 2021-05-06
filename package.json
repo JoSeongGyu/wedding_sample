@@ -23,7 +23,7 @@
   "dependencies": {
     "babel-eslint": "^8.2.6",
     "momentjs": "^2.0.0",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
